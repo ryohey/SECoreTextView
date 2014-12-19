@@ -12,6 +12,8 @@
 #import "SESelectionGrabber.h"
 #import "SEConstants.h"
 
+static const CGFloat SESelectionGrabberHitMargin = 5.0f;
+
 @interface SESelectionGrabberDot : UIView
 
 @property (nonatomic) UIBezierPath *path;
@@ -62,6 +64,17 @@
     }
     
     return self;
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    
+    CGRect extendedDotFrame = CGRectInset(self.dotView.frame, -SESelectionGrabberHitMargin, -SESelectionGrabberHitMargin);
+
+    if (CGRectContainsPoint(extendedDotFrame, point)) {
+        return self.dotView;
+    }
+    
+    return [super hitTest:point withEvent:event];
 }
 
 - (void)layoutSubviews

@@ -46,6 +46,7 @@ static NSString * const PARAGRAPH_SEPARATOR = @"\u2029";
 @property (nonatomic) SETouchPhase touchPhase;
 @property (nonatomic) CGPoint clickPoint;
 @property (nonatomic) CGPoint mouseLocation;
+@property (nonatomic) CGPoint grabberTouchOffset;
 
 @property (nonatomic, readonly) NSMutableAttributedString *editingAttributedText;
 @property (nonatomic, copy) NSAttributedString *originalAttributedTextWhenHighlighting;
@@ -1124,7 +1125,17 @@ static NSString * const PARAGRAPH_SEPARATOR = @"\u2029";
     }
     
     self.touchPhase = SETouchPhaseNone;
-    self.mouseLocation = [gestureRecognizer locationInView:self];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        _grabberTouchOffset = [gestureRecognizer locationInView:gestureRecognizer.view];
+    }
+    
+    CGPoint location = [gestureRecognizer locationInView:self];
+    
+    self.mouseLocation = (CGPoint){
+        location.x,
+        location.y - _grabberTouchOffset.y + CGRectGetHeight(gestureRecognizer.view.frame) / 2.0f
+    };
     
     SESelectionGrabber *startGrabber = self.textSelectionView.startGrabber;
     SESelectionGrabber *endGrabber = self.textSelectionView.endGrabber;
