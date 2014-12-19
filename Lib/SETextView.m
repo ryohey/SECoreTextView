@@ -1146,10 +1146,19 @@ static NSString * const PARAGRAPH_SEPARATOR = @"\u2029";
             self.textSelectionView.startGrabber.dragging = YES;
             
             [self.textLayout setSelectionStartWithFirstPoint:self.mouseLocation];
-            [self moveMagnifierRangedToPoint:startGrabber.center];
+            
+            [self moveMagnifierRangedToPoint:(CGPoint){
+                self.mouseLocation.x,
+                startGrabber.center.y
+            }];
+            
         } else {
             [self.textLayout setSelectionEndWithPoint:self.mouseLocation];
-            [self moveMagnifierRangedToPoint:endGrabber.center];
+            
+            [self moveMagnifierRangedToPoint:(CGPoint){
+                self.mouseLocation.x,
+                endGrabber.center.y
+            }];
         }
         
         [self hideEditingMenu];
