@@ -55,7 +55,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ (%d)", [super description], self.index];
+    return [NSString stringWithFormat:@"%@ (%lu)", [super description], (unsigned long)self.index];
 }
 
 @end

@@ -514,7 +514,7 @@ static NSString * const PARAGRAPH_SEPARATOR = @"\u2029";
     
     self.textLayout.bounds = self.bounds;
     self.textLayout.attributedString = self.attributedText;
-    self.textLayout.lineBreakMode = self.lineBreakMode;
+    self.textLayout.lineBreakMode = (CTLineBreakMode)self.lineBreakMode;
     
     [self.textLayout update];
 }
