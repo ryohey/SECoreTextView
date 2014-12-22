@@ -82,6 +82,7 @@
 		14EDE30217F55A7C00ABF2C6 /* SETextSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EDE2F117F55A7C00ABF2C6 /* SETextSelectionView.m */; };
 		14EDE30317F55A7C00ABF2C6 /* SETextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EDE2F317F55A7C00ABF2C6 /* SETextView.m */; };
 		14EDE30517F55A8F00ABF2C6 /* SECoreTextView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14EDE30417F55A8F00ABF2C6 /* SECoreTextView.bundle */; };
+		D9BE4E1F1A5A8F85004363A2 /* UIView+Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BE4E1E1A5A8F85004363A2 /* UIView+Capture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +185,8 @@
 		14EDE2F217F55A7C00ABF2C6 /* SETextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SETextView.h; path = ../../../../Lib/SETextView.h; sourceTree = "<group>"; };
 		14EDE2F317F55A7C00ABF2C6 /* SETextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SETextView.m; path = ../../../../Lib/SETextView.m; sourceTree = "<group>"; };
 		14EDE30417F55A8F00ABF2C6 /* SECoreTextView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SECoreTextView.bundle; path = ../../../../Resources/SECoreTextView.bundle; sourceTree = "<group>"; };
+		D9BE4E1D1A5A8F85004363A2 /* UIView+Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Capture.h"; path = "../../../../Lib/UIView+Capture.h"; sourceTree = "<group>"; };
+		D9BE4E1E1A5A8F85004363A2 /* UIView+Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Capture.m"; path = "../../../../Lib/UIView+Capture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +286,8 @@
 				14EDE2D617F55A7C00ABF2C6 /* SECompatibility.h */,
 				14EDE2D717F55A7C00ABF2C6 /* SECompatibility.m */,
 				14EDE2D417F55A7C00ABF2C6 /* NSMutableAttributedString+Helper.h */,
+				D9BE4E1D1A5A8F85004363A2 /* UIView+Capture.h */,
+				D9BE4E1E1A5A8F85004363A2 /* UIView+Capture.m */,
 				14EDE30417F55A8F00ABF2C6 /* SECoreTextView.bundle */,
 			);
 			name = Lib;
@@ -479,6 +484,7 @@
 				1469DB7717F358A700ADDA7E /* SEAppDelegate.m in Sources */,
 				1469DB8317F358A700ADDA7E /* SEViewController.m in Sources */,
 				14EDE30217F55A7C00ABF2C6 /* SETextSelectionView.m in Sources */,
+				D9BE4E1F1A5A8F85004363A2 /* UIView+Capture.m in Sources */,
 				14EDE2F717F55A7C00ABF2C6 /* SELineLayout.m in Sources */,
 				1469DC7917F3770F00ADDA7E /* SEStampInputView.m in Sources */,
 				14EDE2FE17F55A7C00ABF2C6 /* SETextLayout.m in Sources */,

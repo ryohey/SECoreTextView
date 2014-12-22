@@ -39,6 +39,7 @@
 		14EDE33F17F55C6400ABF2C6 /* default_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EDE33917F55C6400ABF2C6 /* default_user_icon@2x.png */; };
 		14EDE34017F55C6400ABF2C6 /* SEImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EDE33B17F55C6400ABF2C6 /* SEImageCache.m */; };
 		14EDE34117F55C6400ABF2C6 /* SETwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EDE33D17F55C6400ABF2C6 /* SETwitterHelper.m */; };
+		D9BE4E251A5A8FC2004363A2 /* UIView+Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BE4E241A5A8FC2004363A2 /* UIView+Capture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,8 @@
 		14EDE33B17F55C6400ABF2C6 /* SEImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEImageCache.m; path = ../../../Shared/SEImageCache.m; sourceTree = "<group>"; };
 		14EDE33C17F55C6400ABF2C6 /* SETwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SETwitterHelper.h; path = ../../../Shared/SETwitterHelper.h; sourceTree = "<group>"; };
 		14EDE33D17F55C6400ABF2C6 /* SETwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SETwitterHelper.m; path = ../../../Shared/SETwitterHelper.m; sourceTree = "<group>"; wrapsLines = 0; };
+		D9BE4E231A5A8FC2004363A2 /* UIView+Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Capture.h"; path = "../../../../Lib/UIView+Capture.h"; sourceTree = "<group>"; };
+		D9BE4E241A5A8FC2004363A2 /* UIView+Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Capture.m"; path = "../../../../Lib/UIView+Capture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,9 @@
 				14EDE30A17F55AA100ABF2C6 /* SECompatibility.h */,
 				14EDE30B17F55AA100ABF2C6 /* SECompatibility.m */,
 				14EDE30817F55AA100ABF2C6 /* NSMutableAttributedString+Helper.h */,
+				14EDE30917F55AA100ABF2C6 /* NSMutableAttributedString+Helper.m */,
+				D9BE4E231A5A8FC2004363A2 /* UIView+Capture.h */,
+				D9BE4E241A5A8FC2004363A2 /* UIView+Capture.m */,
 				14EDE30617F55A9800ABF2C6 /* SECoreTextView.bundle */,
 			);
 			name = Lib;
@@ -320,6 +326,7 @@
 				14EDE33317F55AA100ABF2C6 /* SETextMagnifierCaret.m in Sources */,
 				14EDE33417F55AA100ABF2C6 /* SETextMagnifierRanged.m in Sources */,
 				14EDE33517F55AA100ABF2C6 /* SETextSelection.m in Sources */,
+				D9BE4E251A5A8FC2004363A2 /* UIView+Capture.m in Sources */,
 				14EDE32C17F55AA100ABF2C6 /* SELinkText.m in Sources */,
 				14EDE34117F55C6400ABF2C6 /* SETwitterHelper.m in Sources */,
 				1469DC6517F3610700ADDA7E /* SEAppDelegate.m in Sources */,

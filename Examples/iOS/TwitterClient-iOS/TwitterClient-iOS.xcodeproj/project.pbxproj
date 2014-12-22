@@ -46,6 +46,7 @@
 		1469DBE717F35E3200ADDA7E /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1469DBE617F35E3200ADDA7E /* Twitter.framework */; };
 		1469DBE917F35E4300ADDA7E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1469DBE817F35E4300ADDA7E /* Accounts.framework */; };
 		1469DBEB17F35E5100ADDA7E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1469DBEA17F35E5100ADDA7E /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D9BE4E221A5A8FB2004363A2 /* UIView+Capture.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BE4E211A5A8FB2004363A2 /* UIView+Capture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,8 @@
 		1469DBE617F35E3200ADDA7E /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		1469DBE817F35E4300ADDA7E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1469DBEA17F35E5100ADDA7E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D9BE4E201A5A8FB2004363A2 /* UIView+Capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Capture.h"; path = "../../../../Lib/UIView+Capture.h"; sourceTree = "<group>"; };
+		D9BE4E211A5A8FB2004363A2 /* UIView+Capture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Capture.m"; path = "../../../../Lib/UIView+Capture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +251,10 @@
 				1469DBBB17F35DC100ADDA7E /* SEConstants.m */,
 				1469DBB817F35DC100ADDA7E /* SECompatibility.h */,
 				1469DBB917F35DC100ADDA7E /* SECompatibility.m */,
+				1469DBB617F35DC100ADDA7E /* NSMutableAttributedString+Helper.h */,
+				1469DBB717F35DC100ADDA7E /* NSMutableAttributedString+Helper.m */,
+				D9BE4E201A5A8FB2004363A2 /* UIView+Capture.h */,
+				D9BE4E211A5A8FB2004363A2 /* UIView+Capture.m */,
 				14178A8D17F3AB8800C70E04 /* SECoreTextView.bundle */,
 			);
 			name = Lib;
@@ -326,6 +333,7 @@
 				1469DB4117F3587F00ADDA7E /* main.m in Sources */,
 				1469DBA317F35C3300ADDA7E /* SEAppDelegate.m in Sources */,
 				1469DBA417F35C3300ADDA7E /* SETimelineCell.m in Sources */,
+				D9BE4E221A5A8FB2004363A2 /* UIView+Capture.m in Sources */,
 				1469DBA517F35C3300ADDA7E /* SETimelineViewController.m in Sources */,
 				1469DBA617F35C3300ADDA7E /* SETweetViewController.m in Sources */,
 				1469DBA717F35C3300ADDA7E /* SEWebViewController.m in Sources */,
