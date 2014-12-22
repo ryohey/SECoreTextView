@@ -8,6 +8,7 @@
 
 #if TARGET_OS_IPHONE
 #import "SETextMagnifierCaret.h"
+#import "UIView+Capture.h"
 
 @interface SETextMagnifierCaret ()
 {
@@ -122,35 +123,22 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    UIGraphicsBeginImageContext(self.magnifyToView.bounds.size);
-    [self.magnifyToView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *captureImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    CGImageRef captureImageRef = captureImage.CGImage;
+    UIImage *captureImage = [self.magnifyToView se_captureImageWithCenter:self.touchPoint
+                                                                     size:self.mask.size
+                                                                    scale:1.2f];
 
-    CGFloat scale = 1.2f;
-    CGRect box = CGRectMake(ceilf(self.touchPoint.x - self.mask.size.width / scale / 2),
-                            ceilf(self.touchPoint.y - self.mask.size.height / scale / 2),
-                            ceilf(self.mask.size.width / scale),
-                            ceilf(self.mask.size.height / scale));
-    
-    CGImageRef subImage = CGImageCreateWithImageInRect(captureImageRef, box);
-    CGImageRef maskedImage = CGImageCreateWithMask(subImage, _maskRef);
+    CGImageRef maskedImage = CGImageCreateWithMask(captureImage.CGImage, _maskRef);
 
     CGContextRef context = UIGraphicsGetCurrentContext();
-
-    CGAffineTransform xform = CGAffineTransformMake(1.0,  0.0,
-                                                    0.0, -1.0,
-                                                    0.0,  0.0);
-    CGContextConcatCTM(context, xform);
     
-    CGRect area = CGRectMake(0, 0, self.mask.size.width, -self.mask.size.height);
+    CGContextScaleCTM(context, 1, -1);
+    CGContextTranslateCTM(context, 0, -self.mask.size.height);
+    
+    CGRect area = (CGRect){ CGPointZero, self.mask.size };
     
     CGContextDrawImage(context, area, maskedImage);
     CGContextDrawImage(context, area, self.loupe.CGImage);
     
-    CGImageRelease(subImage);
     CGImageRelease(maskedImage);
 }
 
