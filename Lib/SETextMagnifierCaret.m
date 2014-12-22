@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) UIImage *mask;
 @property (strong, nonatomic) UIImage *loupe;
-@property (strong, nonatomic) UIImage *loupeFrame;
 
 @end
 
@@ -35,7 +34,6 @@
         self.mask = mask;
         
         self.loupe = [UIImage imageNamed:@"SECoreTextView.bundle/kb-loupe-hi"];
-        self.loupeFrame = [UIImage imageNamed:@"SECoreTextView.bundle/kb-loupe-lo"];
         
         CGImageRef maskImageRef = self.mask.CGImage;
         _maskRef = CGImageMaskCreate(CGImageGetWidth(maskImageRef),
@@ -149,7 +147,6 @@
     
     CGRect area = CGRectMake(0, 0, self.mask.size.width, -self.mask.size.height);
     
-    CGContextDrawImage(context, area, self.loupeFrame.CGImage);
     CGContextDrawImage(context, area, maskedImage);
     CGContextDrawImage(context, area, self.loupe.CGImage);
     
