@@ -20,8 +20,7 @@
 @property (assign, nonatomic) CGPoint touchPoint;
 
 @property (strong, nonatomic) UIImage *mask;
-@property (strong, nonatomic) UIImage *loupe;
-@property (strong, nonatomic) UIImage *loupeFrame;
+@property (strong, nonatomic) UIImageView *loupeFrameView;
 
 @end
 
@@ -33,11 +32,12 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        UIImage *mask = [UIImage imageNamed:@"SECoreTextView.bundle/kb-magnifier-ranged-mask-flipped"];
+        UIImage *mask = [UIImage imageNamed:@"SECoreTextView.bundle/RangedMagnifierMask_Horizontal_Normal"];
         self.mask = mask;
         
-        self.loupe = [UIImage imageNamed:@"SECoreTextView.bundle/kb-magnifier-ranged-hi"];
-        self.loupeFrame = [UIImage imageNamed:@"SECoreTextView.bundle/kb-magnifier-ranged-lo"];
+        UIImage *loupeFrame = [UIImage imageNamed:@"SECoreTextView.bundle/RangedMagnifierGlass_Horizontal_Normal"];
+        _loupeFrameView = [[UIImageView alloc] initWithImage:loupeFrame];
+        [self addSubview:_loupeFrameView];
         
         CGImageRef maskImageRef = self.mask.CGImage;
         _maskRef = CGImageMaskCreate(CGImageGetWidth(maskImageRef),
@@ -151,16 +151,15 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGAffineTransform xform = CGAffineTransformMake(1.0,  0.0,
-                                                    0.0, -1.0,
-                                                    0.0,  0.0);
-    CGContextConcatCTM(context, xform);
+    CGContextScaleCTM(context, 1, -1);
+    CGContextTranslateCTM(context, 0, -self.mask.size.height);
     
-    CGRect area = CGRectMake(0, 0, self.mask.size.width, -self.mask.size.height);
+    CGRect area = (CGRect){
+        CGPointZero,
+        self.mask.size
+    };
     
-    CGContextDrawImage(context, area, self.loupeFrame.CGImage);
     CGContextDrawImage(context, area, maskedImage);
-    CGContextDrawImage(context, area, self.loupe.CGImage);
     
     CGImageRelease(subImage);
     CGImageRelease(maskedImage);
