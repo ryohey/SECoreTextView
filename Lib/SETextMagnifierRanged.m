@@ -81,25 +81,14 @@
     
     [view addSubview:self];
     
-    CGRect frame = self.frame;
-    CGPoint center = self.center;
-    
-    CGRect startFrame = self.frame;
-    startFrame.size = CGSizeZero;
-    self.frame = startFrame;
-    
-    CGPoint startPosition = self.center;
-    startPosition.x += frame.size.width / 2;
-    startPosition.y += frame.size.height;
-    self.center = startPosition;
+    self.transform = [self makeHiddenTransform];
     
     [UIView animateWithDuration:0.15
                           delay:0.0
                         options:kNilOptions
                      animations:^
      {
-         self.frame = frame;
-         self.center = center;
+         self.transform = CGAffineTransformIdentity;
      }
                      completion:NULL];
 }
@@ -110,25 +99,28 @@
     [self setNeedsDisplay];
 }
 
+- (CGAffineTransform)makeHiddenTransform
+{
+    CGAffineTransform t = CGAffineTransformIdentity;
+    t = CGAffineTransformTranslate(t, 0, self.mask.size.height);
+    t = CGAffineTransformScale(t, 0.001f, 0.001f);
+    return t;
+}
+
 - (void)hide
 {
-    CGRect bounds = self.bounds;
-    bounds.size = CGSizeZero;
-    
-    CGPoint position = self.touchPoint;
-    
-    [UIView animateWithDuration:0.15
+    [UIView animateWithDuration:0.2
                           delay:0.0
                         options:kNilOptions
                      animations:^
      {
-         self.bounds = bounds;
-         self.center = position;
+         self.transform = [self makeHiddenTransform];
      }
                      completion:^(BOOL finished)
      {
          self.magnifyToView = nil;
          [self removeFromSuperview];
+         self.transform = CGAffineTransformIdentity;
      }];
 }
 
