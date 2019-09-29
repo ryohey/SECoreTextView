@@ -227,9 +227,9 @@ static NSString * const PARAGRAPH_SEPARATOR = @"\u2029";
     attributedString = mutableAttributedString;
     
     if (font) {
-        CFStringRef fontName = (__bridge CFStringRef)font.fontName;
+        CTFontDescriptorRef fontDescriptor = (__bridge CTFontDescriptorRef)font.fontDescriptor;
         CGFloat fontSize = font.pointSize;
-        CTFontRef ctfont = CTFontCreateWithName(fontName, fontSize, NULL);
+        CTFontRef ctfont = CTFontCreateWithFontDescriptor(fontDescriptor, fontSize, NULL);
         [mutableAttributedString addAttributes:@{(id)kCTFontAttributeName: (__bridge id)ctfont} range:NSMakeRange(0, length)];
         CFRelease(ctfont);
         
@@ -393,10 +393,10 @@ static NSString * const PARAGRAPH_SEPARATOR = @"\u2029";
     if (!self.font) {
         return;
     }
-    
-    CFStringRef fontName = (__bridge CFStringRef)self.font.fontName;
+
+    CTFontDescriptorRef fontDescriptor = (__bridge CTFontDescriptorRef)self.font.fontDescriptor;
     CGFloat fontSize = self.font.pointSize;
-    CTFontRef ctfont = CTFontCreateWithName(fontName, fontSize, NULL);
+    CTFontRef ctfont = CTFontCreateWithFontDescriptor(fontDescriptor, fontSize, NULL);
     [self setAttributes:@{(id)kCTFontAttributeName: (__bridge id)ctfont}];
     CFRelease(ctfont);
 }
